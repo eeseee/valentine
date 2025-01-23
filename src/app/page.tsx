@@ -24,9 +24,9 @@ export default function Home() {
   // }, []);
 
   return (
-      <div className="h-screen w-full">
-        <div className="flex justify-center">
-          <div className="window">
+      <div className="flex h-screen">
+        <div className="flex w-full justify-center items-center">
+          <div className="window absolute">
             <div className="title-bar">
               <div className="title-bar-text">A Question?</div>
               <div className="title-bar-controls">
@@ -44,11 +44,14 @@ export default function Home() {
               <div className="flex m-2 justify-center space-x-10">
                 <button
                   onClick={() => setIsYes(true)}
+                  title={isYes === undefined ? "u know u wanna:)" : isYes ? "" : "pls gimme a chance"}
                 >
                   Yes
                 </button>
                 <button 
                   onClick={() => setIsYes(false)}
+                  disabled={isYes}
+                  title={isYes === undefined ? "don't do it" : isYes ? "no take backsies :)" : "WHYYYYYYY"}
                 >
                   No
                 </button>
@@ -57,7 +60,7 @@ export default function Home() {
           </div>
           {
             isYes === false && (
-              <div className="window">
+              <div className="window relative">
                 <div className="title-bar">
                   <div className="title-bar-text">ERROR 404</div>
                   <div className="title-bar-controls">
